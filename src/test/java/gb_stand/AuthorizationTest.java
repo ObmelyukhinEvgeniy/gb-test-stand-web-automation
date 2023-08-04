@@ -30,7 +30,7 @@ public class AuthorizationTest {
     void positiveValideData() throws InterruptedException {
         new LoginPage(driver).signInLogin("Evgeniy34", "0e80d10840");
         new LoginPage(driver).checkPositive("Evgeniy34");
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с не валидным логином и паролем.")
@@ -38,7 +38,7 @@ public class AuthorizationTest {
     void negativeNoValideData() throws InterruptedException {
         new LoginPage(driver).signInLogin("badLogin", "666321584");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с пустым полем \"Username\" и валидным паролем")
@@ -46,7 +46,7 @@ public class AuthorizationTest {
     void negativeFieldEmptyUsername() throws InterruptedException {
         new LoginPage(driver).signInLogin("", "0e80d10840");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с пустым полем \"Password\" и валидным логином")
@@ -54,7 +54,7 @@ public class AuthorizationTest {
     void negativeFieldEmptyPassword() throws InterruptedException {
         new LoginPage(driver).signInLogin("Evgeniy34", "");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с пустыми полями \"Username\" и \"Password\".")
@@ -62,7 +62,7 @@ public class AuthorizationTest {
     void negativeFieldsEmpty() throws InterruptedException {
         new LoginPage(driver).signInLogin("", "");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с логином включающим спецсимволы и валидным паролем.")
@@ -70,7 +70,7 @@ public class AuthorizationTest {
     void negativeFieldsSimvol() throws InterruptedException {
         new LoginPage(driver).signInLogin("<>?)(*&^%$#@!", "b6a463ac06");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с логином включающим кирилицу и валидным паролем")
@@ -78,7 +78,7 @@ public class AuthorizationTest {
     void negativeFieldUsernameRus() throws InterruptedException {
         new LoginPage(driver).signInLogin("Охсарон", "41d1b9bfa9");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с валидными логином из 3х символов и паролем")
@@ -86,7 +86,7 @@ public class AuthorizationTest {
     void positiveFieldUsername3Simvols() throws InterruptedException {
         new LoginPage(driver).signInLogin("Bn3", "885f00ccee");
         new LoginPage(driver).checkPositive("Bn3");
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с логином длиной менее 3х символов и валидным паролем")
@@ -94,7 +94,7 @@ public class AuthorizationTest {
     void negativeFieldUsername2Simvols() throws InterruptedException {
         new LoginPage(driver).signInLogin("k2", "61620957a1");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с логином длиной 4 символа и валидным паролем")
@@ -102,7 +102,7 @@ public class AuthorizationTest {
     void positiveFieldUsername4Simvols() throws InterruptedException {
         new LoginPage(driver).signInLogin("Qw12", "adf7cfe580");
         new LoginPage(driver).checkPositive("Qw12");
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с валидными логином из 20-ти символов и паролем")
@@ -110,7 +110,7 @@ public class AuthorizationTest {
     void positiveFieldUsername20Simvols() throws InterruptedException {
         new LoginPage(driver).signInLogin("Twenty20Characters20", "d7c7ef1e8e");
         new LoginPage(driver).checkPositive("Twenty20Characters20");
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с логином длиной 19 символов и валидным паролем")
@@ -118,7 +118,7 @@ public class AuthorizationTest {
     void positiveFieldUsername19Simvols() throws InterruptedException {
         new LoginPage(driver).signInLogin("19CharactersUserMor", "88297b729d");
         new LoginPage(driver).checkPositive("19CharactersUserMor");
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
     @Test
     @Description("Вход с логином длиной более 20 символов и валидным паролем")
@@ -126,7 +126,7 @@ public class AuthorizationTest {
     void negativeFieldUsername21Simvols() throws InterruptedException {
         new LoginPage(driver).signInLogin("UserMoreThan20Charact", "3482491083");
         new LoginPage(driver).checkNegative();
-        Thread.sleep(0);
+        Thread.sleep(100);
     }
 
     @AfterEach

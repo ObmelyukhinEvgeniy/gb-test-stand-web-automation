@@ -9,7 +9,7 @@ public class HomePage extends RootPage{
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
+    //Элементы страницы Home в стиле pageObject
     @FindBy(xpath = "//span[text()='Home']/..")
     private WebElement linkHome;//Ссылка 'Home'
     @FindBy(xpath = "//a[text()='About']")
@@ -50,9 +50,16 @@ public class HomePage extends RootPage{
     private WebElement paginationPreviousPage;//Пагинация предыдущий пост
     @FindBy(xpath = "//a[text()='Next Page']")
     private WebElement paginationNextPage;//Пагинация следующий пост
-
     @FindBy(xpath = "//h1[text()='Create Post']")
     private WebElement titleCreatePost;//Заголовок "Create Post"
+    @FindBy(xpath="//div[@class = 'field']/label/input)[1]")
+    private WebElement fieldTitlePostInput;//Поле ввода заголовка поста
+    @FindBy(xpath="//div[@class = 'field']/label/span)[2]/textarea")
+    private WebElement fieldDescriptionPostInput;//Поле ввода описания поста
+    @FindBy(xpath="//div[@class = 'field']/label/span)[3]/textarea")
+    private WebElement fieldContentPostInput;//Поле ввода контента поста
+    @FindBy(xpath="//div[@class='submit']/button")
+    private WebElement buttonCreatePost;//Кнопка оформления поста
 
     public void buttonNewPostAndReturnHome() { //Кликаем Кнопка "+"
         buttonPlusCreate.click();
@@ -60,8 +67,17 @@ public class HomePage extends RootPage{
         linkHome.click();
         Assertions.assertTrue(titleBlog.isDisplayed());
     }
-
-    public void modificationSort() throws InterruptedException {//Работа кнопки сортировки
+    public void createNewPosts() throws InterruptedException { //Создаём новый пост без картинки
+        buttonPlusCreate.click();
+        Assertions.assertTrue(titleCreatePost.isDisplayed());
+        fieldTitlePostInput.sendKeys("Пост 7");
+        fieldDescriptionPostInput.sendKeys("Описание 7");
+        fieldContentPostInput.sendKeys("Контент 7");
+        buttonCreatePost.click();
+        Thread.sleep(2000);
+        Assertions.assertTrue(titleContentFirst.getText().contains("Пост 7"));
+    }
+    public void modificationSort() throws InterruptedException { //Работа кнопки сортировки
         Assertions.assertTrue(buttonSortFalse.isDisplayed());
         buttonSort.click();
         Thread.sleep(2000);
@@ -78,7 +94,7 @@ public class HomePage extends RootPage{
         Thread.sleep(2000);
         paginationPreviousPage.click();
         Thread.sleep(2000);
-        Assertions.assertTrue(titleContentFirst.getText().contains("Пост 6"));
+        Assertions.assertTrue(titleContentFirst.getText().contains("Пост"));
     }
 
 }

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends RootPage{
-    //Конструктор пренимающий объект driver из класса RootPage.
+    //Конструктор принимающий объект driver из класса RootPage.
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -25,13 +25,13 @@ public class LoginPage extends RootPage{
     private WebElement titleHelloProfile;//Название "Hello, profile" в правом верхнем углу.
 
     @FindBy(xpath = "//h2[text()='401']")
-    private WebElement numberCodeUnauthorized;//Заголовок при вводе неверных данных
+    private WebElement numberCodeUnauthorized;//Заголовок кода ошибки при вводе неверных данных
 
     @FindBy(xpath = "//div[@class='content']")
-    private WebElement divisionContent;
+    private WebElement divisionContent;//Область с постами на странице Home
 
     @FindBy(xpath = "//p[text()='Invalid credentials.']")
-    private WebElement titleUnauthorized;
+    private WebElement titleUnauthorized;//Заголовок при вводе неверных данных
 
     //Метод выполняющий вход в личный кабинет(ЛК)
     public void signInLogin(String login, String password) {
@@ -39,14 +39,14 @@ public class LoginPage extends RootPage{
         fieldPassword.sendKeys(password);
         buttonLogin.click();
     }
+    //Метод выполняющий проверку сценариев с позитивным исходом
     public void checkPositive(String login) {
         Assertions.assertTrue(titleHelloProfile.getText().contains(login));
         Assertions.assertTrue(divisionContent.isDisplayed());
     }
-
+    //Метод выполняющий проверку сценариев с негативным исходом
     public void checkNegative() {
         Assertions.assertTrue(numberCodeUnauthorized.getText().contains("401"));
         Assertions.assertTrue(titleUnauthorized.getText().contains("Проверьте логин и пароль."));
-
     }
 }
