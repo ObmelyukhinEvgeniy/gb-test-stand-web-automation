@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d27e2b53-3535-40a0-abcb-ede902469de9" name="Changes" comment="1.1 Prod">
+    <list default="true" id="d27e2b53-3535-40a0-abcb-ede902469de9" name="Changes" comment="1.2 Prod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gb_stand/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gb_stand/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/gb_stand/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/gb_stand/LoginPage.java" afterDir="false" />
@@ -58,8 +58,8 @@
       <recent name="C:\Users\john_\IdeaProjects\gb-test-stand-web-automation\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HomePageTest.transitionPageCreateNewPost">
-    <configuration name="AuthorizationTest.negativeNoValideData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HomePageTest">
+    <configuration name="HomePageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gb-test-stand-web-automation" />
       <extension name="coverage">
         <pattern>
@@ -68,9 +68,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="gb_stand" />
-      <option name="MAIN_CLASS_NAME" value="gb_stand.AuthorizationTest" />
-      <option name="METHOD_NAME" value="negativeNoValideData" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="gb_stand.HomePageTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,22 +90,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomePageTest.checkSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gb-test-stand-web-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="gb_stand.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="gb_stand" />
-      <option name="MAIN_CLASS_NAME" value="gb_stand.HomePageTest" />
-      <option name="METHOD_NAME" value="checkSort" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HomePageTest.checkSwitch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gb-test-stand-web-automation" />
       <extension name="coverage">
@@ -118,6 +101,22 @@
       <option name="PACKAGE_NAME" value="gb_stand" />
       <option name="MAIN_CLASS_NAME" value="gb_stand.HomePageTest" />
       <option name="METHOD_NAME" value="checkSwitch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomePageTest.createNewPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gb-test-stand-web-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gb_stand.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="gb_stand" />
+      <option name="MAIN_CLASS_NAME" value="gb_stand.HomePageTest" />
+      <option name="METHOD_NAME" value="createNewPost" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -141,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HomePageTest.transitionPageCreateNewPost" />
-        <item itemvalue="JUnit.HomePageTest.checkSwitch" />
-        <item itemvalue="JUnit.HomePageTest.checkSort" />
+        <item itemvalue="JUnit.HomePageTest" />
         <item itemvalue="JUnit.HomePageTest.checkPagination" />
-        <item itemvalue="JUnit.AuthorizationTest.negativeNoValideData" />
+        <item itemvalue="JUnit.HomePageTest.transitionPageCreateNewPost" />
+        <item itemvalue="JUnit.HomePageTest.createNewPost" />
+        <item itemvalue="JUnit.HomePageTest.checkSwitch" />
       </list>
     </recent_temporary>
   </component>
@@ -165,11 +164,19 @@
       <option name="project" value="LOCAL" />
       <updated>1691071331611</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1.2 Prod">
+      <created>1691138278243</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691138278243</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.1 Prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.1 Prod" />
+    <MESSAGE value="1.2 Prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2 Prod" />
   </component>
 </project>

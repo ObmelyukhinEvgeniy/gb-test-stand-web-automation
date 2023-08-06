@@ -41,12 +41,18 @@ public class LoginPage extends RootPage{
     }
     //Метод выполняющий проверку сценариев с позитивным исходом
     public void checkPositive(String login) {
-        Assertions.assertTrue(titleHelloProfile.getText().contains(login));
-        Assertions.assertTrue(divisionContent.isDisplayed());
+        Assertions.assertTrue(titleHelloProfile.getText().contains(login));//Проверяет что аккаунт под которым входили отображается в профиле
+        Assertions.assertTrue(divisionContent.isDisplayed());//Проверяет, что появились посты пользователя
     }
     //Метод выполняющий проверку сценариев с негативным исходом
     public void checkNegative() {
         Assertions.assertTrue(numberCodeUnauthorized.getText().contains("401"));
         Assertions.assertTrue(titleUnauthorized.getText().contains("Проверьте логин и пароль."));
+    }
+    public void checkUrl() {
+        // Получаем текущий URL
+        String currentUrl = driver.getCurrentUrl();
+        // Проверяем совпадение ожидаемого URL и текущего URL
+        Assertions.assertEquals("https://test-stand.gb.ru/", currentUrl);
     }
 }

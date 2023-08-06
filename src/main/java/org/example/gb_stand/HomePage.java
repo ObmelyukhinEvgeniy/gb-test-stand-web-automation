@@ -18,7 +18,7 @@ public class HomePage extends RootPage{
     private WebElement linkContact;//Ссылка 'Contact'
     @FindBy(xpath = "//a[contains(text(),'Hello')]")
     private WebElement menuHello;//Меню 'Hello'
-    @FindBy(xpath = "//span[text()='Profile']/..//span[1]")
+    @FindBy(xpath = "//span[text()='Profile']/..//span[1]]/..")
     private WebElement menuHelloProfile;//Меню 'Hello' пункт 'Profile'
     @FindBy(xpath = "//span[text()='Login']/..//span[1]")
     private WebElement menuHelloLogin;//Меню 'Hello' пункт 'Login'
@@ -52,30 +52,42 @@ public class HomePage extends RootPage{
     private WebElement paginationNextPage;//Пагинация следующий пост
     @FindBy(xpath = "//h1[text()='Create Post']")
     private WebElement titleCreatePost;//Заголовок "Create Post"
-    @FindBy(xpath="//div[@class = 'field']/label/input)[1]")
+    @FindBy(xpath="//span[contains(.,'Title')]/following-sibling::input")
     private WebElement fieldTitlePostInput;//Поле ввода заголовка поста
-    @FindBy(xpath="//div[@class = 'field']/label/span)[2]/textarea")
+    @FindBy(xpath="//textarea[@maxlength='100']")
     private WebElement fieldDescriptionPostInput;//Поле ввода описания поста
-    @FindBy(xpath="//div[@class = 'field']/label/span)[3]/textarea")
+    @FindBy(xpath="//textarea[@aria-controls='SMUI-textfield-helper-text-1']")
     private WebElement fieldContentPostInput;//Поле ввода контента поста
-    @FindBy(xpath="//div[@class='submit']/button")
+    @FindBy(xpath="//button[@type='submit']")
     private WebElement buttonCreatePost;//Кнопка оформления поста
-
-    public void buttonNewPostAndReturnHome() { //Кликаем Кнопка "+"
-        buttonPlusCreate.click();
-        Assertions.assertTrue(titleCreatePost.isDisplayed());
+    @FindBy(xpath = "//h1")
+    private WebElement titleNewCreatePost;//Заголовок созданного поста
+    @FindBy(xpath = "//div[@class='content']//a[contains(@class,'post')][1]/img")
+    private WebElement imgCheck;//Картинка первого поста
+    @FindBy(xpath = "//div[@class='content']//a[contains(@class,'post')][1]/h2")
+    private WebElement titleCheck;//Заголовок первого поста
+    @FindBy(xpath = "//div[@class='content']//a[contains(@class,'post')][1]/div")
+    private WebElement descriptionCheck;//Описание первого поста
+    @FindBy(xpath = "//h1")
+    private WebElement titleProfilePage;//Заголовок страницы профиля
+    public void linkAboutAndReturnHomeCheckImgTitleDescription() throws InterruptedException { //Переходим на страницу профиля затем на домашнюю и проверяем что пост содержит картинку, описание, заголовок
+        linkAbout.click();
         linkHome.click();
+        Thread.sleep(1000);
         Assertions.assertTrue(titleBlog.isDisplayed());
+        Assertions.assertTrue(imgCheck.isDisplayed());
+        Assertions.assertTrue(titleCheck.isDisplayed());
+        Assertions.assertTrue(descriptionCheck.isDisplayed());
     }
     public void createNewPosts() throws InterruptedException { //Создаём новый пост без картинки
         buttonPlusCreate.click();
         Assertions.assertTrue(titleCreatePost.isDisplayed());
-        fieldTitlePostInput.sendKeys("Пост 7");
-        fieldDescriptionPostInput.sendKeys("Описание 7");
-        fieldContentPostInput.sendKeys("Контент 7");
+        fieldTitlePostInput.sendKeys("Пост созданный автоматизированным ПО");
+        fieldDescriptionPostInput.sendKeys("Описание созданное автоматизированным ПО");
+        fieldContentPostInput.sendKeys("Контент созданный автоматизированным ПО");
         buttonCreatePost.click();
         Thread.sleep(2000);
-        Assertions.assertTrue(titleContentFirst.getText().contains("Пост 7"));
+        Assertions.assertTrue(titleNewCreatePost.getText().contains("Пост созданный автоматизированным ПО"));
     }
     public void modificationSort() throws InterruptedException { //Работа кнопки сортировки
         Assertions.assertTrue(buttonSortFalse.isDisplayed());
@@ -94,7 +106,7 @@ public class HomePage extends RootPage{
         Thread.sleep(2000);
         paginationPreviousPage.click();
         Thread.sleep(2000);
-        Assertions.assertTrue(titleContentFirst.getText().contains("Пост"));
+        Assertions.assertTrue(titleContentFirst.getText().contains("Пост "));
     }
 
 }
